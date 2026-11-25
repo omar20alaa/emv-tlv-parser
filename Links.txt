@@ -1,0 +1,8 @@
+jetpack
+https://jitpack.io/#omar20alaa/emv-tlv-parser/1.0.0
+
+========================================================
+
+
+GitHub
+https://github.com/omar20alaa/emv-tlv-parser/tree/main

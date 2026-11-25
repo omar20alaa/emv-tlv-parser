@@ -53,5 +53,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     implementation("androidx.compose.material:material-icons-extended")
-    implementation(project(":emv-tlv-parser"))
+
+    // Local Library
+//    implementation(project(":emv-tlv-parser"))
+
+    // Jitpack Library
+    implementation("com.github.omar20alaa:emv-tlv-parser:1.0.0")
 }
