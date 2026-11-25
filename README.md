@@ -14,6 +14,56 @@ A lightweight Kotlin library for parsing and decoding EMV TLV (Tag-Length-Value)
 - Structured success and error results.
 - Pure Kotlin/JVM library — no Android dependency required.
 
+## Requirements
+
+- Kotlin/JVM
+- Java 11 compatible target
+
+## Installation
+
+### 1. Add JitPack Repository
+
+In your project's `settings.gradle.kts`, add JitPack to `dependencyResolutionManagement`:
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+### 2. Add Dependency
+
+In your app-level `build.gradle.kts`, add:
+
+```kotlin
+dependencies {
+    implementation("com.github.omar20alaa:emv-tlv-parser:1.0.0")
+}
+```
+
+For the latest release and build status, visit [JitPack](https://jitpack.io/#omar20alaa/emv-tlv-parser/1.0.0).
+
+## Example
+
+### Input
+
+```text
+9F02060000000100005F2A020840
+```
+
+### Decoded Result
+
+| Tag | Decoded Value |
+|---|---|
+| `9F02` | 100.00 |
+| `5F2A` | USD - US Dollar |
+
+The parser can also process constructed tags containing nested TLV data.
+
 ## Supported Decoding
 
 The library includes decoding support for common EMV tags, including:
@@ -33,40 +83,6 @@ The library includes decoding support for common EMV tags, including:
 | `5F34` | PAN Sequence Number |
 | `5F24` | Application Expiration Date |
 
-## Example
-
-### Input
-
-```text
-9F02060000000100005F2A020840
-```
-
-### Decoded Result
-
-| Tag | Decoded Value |
-|---|---|
-| `9F02` | 100.00 |
-| `5F2A` | USD - US Dollar |
-
-The parser can also process constructed tags containing nested TLV data.
-
-## Requirements
-
-- Kotlin/JVM
-- Java 11 compatible target
-
-## Installation
-
-The library will be available through JitPack.
-
-```kotlin
-dependencies {
-    implementation("com.github.omar20alaa:emv-tlv-parser:1.0.0")
-}
-```
-
-JitPack repository configuration may be required depending on your project's Gradle setup.
-
 ## Security Note
 
 This library is intended for EMV TLV parsing, educational purposes, development, and data analysis.
@@ -75,10 +91,12 @@ Sensitive payment data, including cardholder PANs, should be handled carefully. 
 
 ## License
 
-MIT License
+This project is licensed under the MIT License.
 
 ## Screenshots
 
-<img width="633" height="1280" alt="WhatsApp Image 2026-11-24 at 10 18 08 AM" src="https://github.com/user-attachments/assets/6215099f-8b51-436c-bf45-190262ff0c59" />
-<img width="633" height="1280" alt="WhatsApp Image 2026-11-24 at 10 18 09 AM (1)" src="https://github.com/user-attachments/assets/1b857c07-d094-4cdd-9b85-00ecbbe0d0cf" />
-<img width="633" height="1280" alt="WhatsApp Image 2026-11-24 at 10 18 09 AM" src="https://github.com/user-attachments/assets/a5b97b4c-eae2-4cc9-89cf-2923fb8a5dff" />
+<img width="633" height="1280" alt="EMV TLV Parser Screenshot 1" src="https://github.com/user-attachments/assets/6215099f-8b51-436c-bf45-190262ff0c59" />
+
+<img width="633" height="1280" alt="EMV TLV Parser Screenshot 2" src="https://github.com/user-attachments/assets/1b857c07-d094-4cdd-9b85-00ecbbe0d0cf" />
+
+<img width="633" height="1280" alt="EMV TLV Parser Screenshot 3" src="https://github.com/user-attachments/assets/a5b97b4c-eae2-4cc9-89cf-2923fb8a5dff" />
