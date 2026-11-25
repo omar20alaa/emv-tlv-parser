@@ -19,7 +19,7 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
 
-            groupId = "com.github.omar20alaa"
+            groupId = "com.github.omar20alaa.emv-tlv-parser"
             artifactId = "emv-tlv-parser"
             version = "1.0.0"
 
