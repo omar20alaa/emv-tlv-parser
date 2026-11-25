@@ -179,3 +179,5 @@ This project is licensed under the MIT License.
 <img width="633" height="1280" alt="EMV TLV Parser Screenshot 2" src="https://github.com/user-attachments/assets/1b857c07-d094-4cdd-9b85-00ecbbe0d0cf" />
 
 <img width="633" height="1280" alt="EMV TLV Parser Screenshot 3" src="https://github.com/user-attachments/assets/a5b97b4c-eae2-4cc9-89cf-2923fb8a5dff" />
+
+<img width="1854" height="1106" alt="Screenshot 2026-11-25 110937" src="https://github.com/user-attachments/assets/ce7ea3a9-3ca2-4d03-adbe-0acaaf222ff5" />
