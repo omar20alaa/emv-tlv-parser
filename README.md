@@ -47,22 +47,95 @@ dependencies {
 
 For the latest release and build status, visit [JitPack](https://jitpack.io/#omar20alaa/emv-tlv-parser/1.0.0).
 
-## Example
+## Usage
 
-### Input
+### Parse EMV TLV Data
+
+Create a `TLVParser` instance and pass the hexadecimal TLV data to `parse()`.
+
+```kotlin
+import app.emv_tlv_parser.parser.TLVParser
+import app.emv_tlv_parser.model.TLVParseResult
+
+val parser = TLVParser()
+
+val result = parser.parse("9F02060000000100005F2A020840")
+
+when (result) {
+    is TLVParseResult.Success -> {
+        result.tags.forEach { tag ->
+            println("Tag: ${tag.tag}")
+            println("Name: ${tag.name}")
+            println("Length: ${tag.length}")
+            println("Value: ${tag.value}")
+            println("Decoded Value: ${tag.decodedValue}")
+        }
+    }
+
+    is TLVParseResult.Error -> {
+        println("Parsing failed: ${result.message}")
+    }
+}
+```
+
+### Decoded Result
+
+For the input:
 
 ```text
 9F02060000000100005F2A020840
 ```
 
-### Decoded Result
+The parser returns two EMV tags:
 
-| Tag | Decoded Value |
-|---|---|
-| `9F02` | 100.00 |
-| `5F2A` | USD - US Dollar |
+| Tag | Name | Decoded Value |
+|---|---|---|
+| `9F02` | Amount, Authorised | 100.00 |
+| `5F2A` | Transaction Currency Code | USD - US Dollar |
 
-The parser can also process constructed tags containing nested TLV data.
+### Parse Nested TLV Structures
+
+The parser supports constructed tags containing nested TLV structures.
+
+Nested tags are available through the `children` property:
+
+```kotlin
+when (val result = parser.parse(tlvData)) {
+    is TLVParseResult.Success -> {
+        result.tags.forEach { parentTag ->
+            println("Parent Tag: ${parentTag.tag}")
+
+            parentTag.children.forEach { child ->
+                println("Child Tag: ${child.tag}")
+                println("Decoded Value: ${child.decodedValue}")
+            }
+        }
+    }
+
+    is TLVParseResult.Error -> {
+        println("Parsing failed: ${result.message}")
+    }
+}
+```
+
+### Configure Parsing Limits
+
+You can customize the parser's input length, maximum nesting depth, and maximum number of tags:
+
+```kotlin
+import app.emv_tlv_parser.parser.TLVParser
+import app.emv_tlv_parser.parser.TLVParserConfig
+
+val config = TLVParserConfig(
+    maxInputLength = 32768,
+    maxNestingDepth = 8,
+    maxTags = 500
+)
+
+val parser = TLVParser(config)
+```
+
+These limits help control resource usage when processing TLV input.
 
 ## Supported Decoding
 
@@ -88,6 +161,12 @@ The library includes decoding support for common EMV tags, including:
 This library is intended for EMV TLV parsing, educational purposes, development, and data analysis.
 
 Sensitive payment data, including cardholder PANs, should be handled carefully. Avoid logging, sharing, or exposing raw card data. The parser does not replace payment security controls, cryptographic validation, or the security requirements of a certified payment application.
+
+## Testing
+
+The library includes 41 unit test cases covering parsing behavior, supported TLV structures, decoding, and error handling.
+
+All 41 tests passed in the project's test run.
 
 ## License
 
