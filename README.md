@@ -76,3 +76,9 @@ Sensitive payment data, including cardholder PANs, should be handled carefully. 
 ## License
 
 MIT License
+
+## Screenshots
+
+<img width="633" height="1280" alt="WhatsApp Image 2026-11-24 at 10 18 08 AM" src="https://github.com/user-attachments/assets/6215099f-8b51-436c-bf45-190262ff0c59" />
+<img width="633" height="1280" alt="WhatsApp Image 2026-11-24 at 10 18 09 AM (1)" src="https://github.com/user-attachments/assets/1b857c07-d094-4cdd-9b85-00ecbbe0d0cf" />
+<img width="633" height="1280" alt="WhatsApp Image 2026-11-24 at 10 18 09 AM" src="https://github.com/user-attachments/assets/a5b97b4c-eae2-4cc9-89cf-2923fb8a5dff" />
