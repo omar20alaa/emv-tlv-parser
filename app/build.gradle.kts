@@ -58,5 +58,5 @@ dependencies {
 //    implementation(project(":emv-tlv-parser"))
 
     // Jitpack Library
-    implementation("com.github.omar20alaa:emv-tlv-parser:1.0.0")
+    implementation("com.github.omar20alaa:emv-tlv-parser:1.0.1")
 }
