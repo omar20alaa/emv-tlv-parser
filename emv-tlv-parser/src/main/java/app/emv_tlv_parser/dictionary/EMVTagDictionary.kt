@@ -1,3 +1,4 @@
+
 package app.emv_tlv_parser.dictionary
 
 internal object EMVTagDictionary {
@@ -128,6 +129,72 @@ internal object EMVTagDictionary {
             name = "Application PAN Sequence Number",
             description = "Identifies the card number sequence.",
             format = "Numeric"
+        ),
+
+        // Constructed EMV Templates
+
+        EMVTagInfo(
+            tag = "6F",
+            name = "File Control Information Template",
+            description = "Contains the File Control Information returned by the card after selecting an application or file.",
+            format = "Constructed"
+        ),
+
+        EMVTagInfo(
+            tag = "A5",
+            name = "File Control Information Proprietary Template",
+            description = "Contains proprietary information associated with the selected application.",
+            format = "Constructed"
+        ),
+
+        EMVTagInfo(
+            tag = "61",
+            name = "Application Template",
+            description = "Contains application-related data objects in a directory entry.",
+            format = "Constructed"
+        ),
+
+        EMVTagInfo(
+            tag = "70",
+            name = "EMV Record Template",
+            description = "Contains data objects retrieved from the card using the READ RECORD command.",
+            format = "Constructed"
+        ),
+
+        EMVTagInfo(
+            tag = "71",
+            name = "Issuer Script Template 1",
+            description = "Contains issuer script commands to be processed before the second GENERATE AC command.",
+            format = "Constructed"
+        ),
+
+        EMVTagInfo(
+            tag = "72",
+            name = "Issuer Script Template 2",
+            description = "Contains issuer script commands to be processed after the second GENERATE AC command.",
+            format = "Constructed"
+        ),
+
+        EMVTagInfo(
+            tag = "73",
+            name = "Directory Discretionary Template",
+            description = "Contains discretionary data associated with a directory entry.",
+            format = "Constructed"
+        ),
+
+        EMVTagInfo(
+            tag = "77",
+            name = "Response Message Template Format 2",
+            description = "Contains data objects returned by the card in a response message.",
+            format = "Constructed"
+        ),
+
+
+        EMVTagInfo(
+            tag = "80",
+            name = "Response Message Template Format 1",
+            description = "Contains response data objects in a primitive response template.",
+            format = "Primitive"
         )
     )
 
